@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
-    "axios": "^1.9.0",
+    "axios": "^1.20.0",
+    "chart.js": "^4.6.1",
     "leaflet": "^1.9.4",
+    "lucide-react": "^1.61.0",
     "react": "^19.1.0",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.1.0",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.6.0",
+    "react-router-dom": "^7.18.4",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
