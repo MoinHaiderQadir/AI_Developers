@@ -1,14 +1,15 @@
 <div align="center">
 
-<img src="Frontend/public/Images/logocivictrack.png" alt="CivicTrack logo" width="120" />
+<img src="Frontend/public/Images/logocivictrack.png" alt="EcoTrack logo" width="120" />
 
-# ECO Track
+# EcoTrack
 
 ### A community-powered platform to report, verify and resolve environmental incidents.
 
-Citizens report problems with a photo and a map pin. Admins verify them and dispatch field staff. Staff clock in and out on-site, with GPS, until the issue is resolved.
+Citizens report problems with a photo and a map pin. Admins verify them and dispatch field staff. Staff clock in and out on-site with GPS until the issue is resolved.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-ai--developers.vercel.app-0A2540?style=for-the-badge&logo=vercel&logoColor=white)](https://ai-developers.vercel.app)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ![React](https://img.shields.io/badge/React_19-2563EB?style=flat-square&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite_6-646CFF?style=flat-square&logo=vite&logoColor=white)
@@ -38,6 +39,7 @@ Citizens report problems with a photo and a map pin. Admins verify them and disp
 - [API Reference](#api-reference)
 - [Deployment](#deployment)
 - [Screenshots](#screenshots)
+- [Known Limitations](#known-limitations)
 - [Roadmap](#roadmap)
 - [Team](#team)
 - [Contributing](#contributing)
@@ -47,46 +49,49 @@ Citizens report problems with a photo and a map pin. Admins verify them and disp
 
 ## Overview
 
-**EcoTrack** (shown as *EcoTracker* on the public landing page) is a full-stack, multi-portal web application that closes the gap between people who **see** environmental problems and the authorities who can **fix** them.
+**EcoTrack** is a full-stack, multi-portal web application that closes the gap between people who **see** environmental problems and the authorities who can **fix** them.
 
-The platform is made of **four connected modules** that share a single REST API and database:
+The platform consists of **four connected modules** that share a single REST API and database:
 
 | Module | Audience | Purpose |
 |---|---|---|
-| **Citizen Portal** (`Frontend/`) | Public users | Register, report incidents with photo and location, track the status of their reports |
+| **Citizen Portal** (`Frontend/`) | Public users | Register, report incidents with photo and location, track the status of reports |
 | **Admin Dashboard** (`Admin/`) | Administrators | Verify reports, analyse trends, manage staff, assign work as shifts |
-| **Staff Portal** (`Staff/`) | Field staff | See assigned incidents, clock in/out with GPS, mark incidents resolved |
+| **Staff Portal** (`Staff/`) | Field staff | View assigned incidents, clock in/out with GPS, mark incidents resolved |
 | **REST API** (`Backend/`) | All of the above | Authentication, business logic, image uploads, analytics |
 
 ## The Problem
 
-Illegal dumping, polluted water, air pollution and deforestation are usually noticed by ordinary people, but reports get lost: there is no single place to file them, no proof of the exact location, no accountability for who responds, and no visibility on whether the issue was ever fixed.
+Illegal dumping, polluted water, air pollution and deforestation are usually noticed first by ordinary people, yet reports often get lost. There is no single place to file them, no proof of the exact location, no accountability for who responds, and no visibility on whether the issue was ever fixed.
 
-CivicTrack solves this with a **transparent, end-to-end lifecycle**: report, verify, assign, resolve, with location, photo evidence and timestamps recorded at every step.
+EcoTrack provides a **transparent, end-to-end lifecycle**: report, verify, assign, resolve, with location, photo evidence and timestamps recorded at every step.
 
 ## Key Features
 
 ### Citizen Portal
-- **Secure registration and login** with JWT authentication and bcrypt-hashed passwords
-- **Anonymous reporting option** for users who prefer privacy
-- **Incident reporting** with title, description and category (`waste`, `water`, `air`, `deforestation`, `other`)
-- **Interactive map picker** (Leaflet + OpenStreetMap) with place search and one-tap *Use my current location*
-- **Photo evidence upload**, stored on Cloudinary
-- **Personal dashboard** to follow the status of every report you submitted
+
+- Secure registration and login using JWT authentication and bcrypt-hashed passwords
+- Optional anonymous reporting for users who prefer privacy
+- Incident reporting with title, description and category (`waste`, `water`, `air`, `deforestation`, `other`)
+- Interactive map picker (Leaflet + OpenStreetMap) with place search and one-tap "Use my current location"
+- Photo evidence upload, stored on Cloudinary
+- Personal dashboard to follow the status of every submitted report
 - Animated, responsive landing page built with Framer Motion
 
 ### Admin Dashboard
-- **Analytics overview**: incidents by status and category (Chart.js pie and bar charts), total users, total staff, active shifts and the five most recent incidents
-- **Report management**: browse all reports, open a detailed view with map and photo, verify new reports, delete invalid ones
-- **Staff directory**: add staff members with a profile photo, view staff details, remove staff
-- **Shift assignment**: assign a staff member to an incident with start and end times
-- **Shift monitoring**: track every shift and its status in one place
+
+- **Analytics overview:** incidents by status and category (Chart.js pie and bar charts), total users, total staff, active shifts and the five most recent incidents
+- **Report management:** browse all reports, open a detailed view with map and photo, verify new reports, delete invalid ones
+- **Staff directory:** add staff members with a profile photo, view details, remove staff
+- **Shift assignment:** assign a staff member to an incident with start and end times
+- **Shift monitoring:** track every shift and its status in one place
 
 ### Staff Portal
-- **Staff login** with Staff ID and email
-- **Assigned reports** view with incident details, photo and map location
-- **GPS clock-in and clock-out**: the device location is stored when work starts and when the incident is resolved
-- **Resolved reports** history
+
+- Staff login with Staff ID and email
+- Assigned reports view with incident details, photo and map location
+- GPS clock-in and clock-out: the device location is stored when work starts and when the incident is resolved
+- Resolved reports history
 
 ## How It Works
 
@@ -130,7 +135,7 @@ flowchart TB
     C1 & C2 & C3 -. "map tiles / geocoding" .-> OSM[OpenStreetMap + Nominatim]
 ```
 
-The backend follows a layered structure (**routes → controllers → models**) with an `/api/<resource>` convention, and each frontend is an independent single-page app that can be deployed on its own.
+The backend follows a layered structure (**routes → controllers → models**) with an `/api/<resource>` convention. Each frontend is an independent single-page application that can be deployed on its own.
 
 ## Tech Stack
 
@@ -142,7 +147,7 @@ The backend follows a layered structure (**routes → controllers → models**) 
 | **HTTP client** | Axios |
 | **Backend** | Node.js, Express 5, Mongoose 8 |
 | **Database** | MongoDB |
-| **Auth** | JSON Web Tokens, bcryptjs |
+| **Authentication** | JSON Web Tokens, bcryptjs |
 | **File storage** | Multer (memory storage), Cloudinary |
 | **Hosting** | Vercel |
 
@@ -156,7 +161,7 @@ AI_Developers/
 │   ├── models/              # User, Staff, Incident, Shift, File schemas
 │   ├── routes/              # /api/user, /report, /staff, /shift, /admin
 │   ├── createAdmin.js       # One-time script to seed the first admin
-│   └── index.js             # App entry point
+│   └── index.js             # Application entry point
 │
 ├── Frontend/                # Citizen Portal
 │   └── src/
@@ -190,9 +195,9 @@ AI_Developers/
 
 ### Prerequisites
 
-- **Node.js 18+** and **npm**
-- A **MongoDB** database ([MongoDB Atlas](https://www.mongodb.com/atlas) free tier works well)
-- A free **[Cloudinary](https://cloudinary.com)** account for image uploads
+- [Node.js](https://nodejs.org) 18 or later, and npm
+- A MongoDB database ([MongoDB Atlas](https://www.mongodb.com/atlas) free tier works well)
+- A free [Cloudinary](https://cloudinary.com) account for image uploads
 
 ### 1. Clone the repository
 
@@ -201,14 +206,14 @@ git clone https://github.com/MoinHaiderQadir/AI_Developers.git
 cd AI_Developers
 ```
 
-### 2. Start the backend
+### 2. Configure and start the backend
 
 ```bash
 cd Backend
 npm install
 ```
 
-Create a `.env` file in `Backend/` (see [Environment Variables](#environment-variables)), then:
+Create a `.env` file in `Backend/` (see [Environment Variables](#environment-variables)), then run:
 
 ```bash
 # Seed the first admin account (run once, then change the password)
@@ -220,7 +225,7 @@ npm start
 
 ### 3. Start the frontends
 
-Open a new terminal for each application:
+Open a separate terminal for each application:
 
 ```bash
 # Citizen Portal
@@ -233,7 +238,7 @@ cd Admin && npm install && npm run dev
 cd Staff && npm install && npm run dev
 ```
 
-Vite prints the local URL of each app (starting at `http://localhost:5173`; the next apps automatically take the next free port).
+Vite prints the local URL of each app. The first starts at `http://localhost:5173`, and the others automatically take the next free port.
 
 > **Note:** the frontends currently call the API at `http://localhost:5000`, so the backend must run with `PORT=5000` during local development.
 
@@ -253,12 +258,12 @@ CLOUD_API_SECRET=your_cloudinary_api_secret
 
 | Variable | Description |
 |---|---|
-| `PORT` | Port for the API (default `3000`, use `5000` locally to match the frontends) |
+| `PORT` | Port for the API (defaults to `3000`; use `5000` locally to match the frontends) |
 | `MONGODB_URI` | MongoDB connection string |
 | `JWT_SECRET` | Secret used to sign login tokens (tokens expire after 3 days) |
 | `CLOUD_NAME`, `CLOUD_API_KEY`, `CLOUD_API_SECRET` | Cloudinary credentials for photo uploads |
 
-> Never commit `.env` files or real credentials to GitHub.
+> **Security:** never commit `.env` files or real credentials to version control.
 
 ## API Reference
 
@@ -275,10 +280,10 @@ Base path: `/api`
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/incidentupload` | Submit a report (multipart form, field `photo` optional) |
+| `POST` | `/incidentupload` | Submit a report (multipart form, optional `photo` field) |
 | `GET` | `/getall` | List all reports |
 | `GET` | `/get/:userId` | List reports created by a user |
-| `GET` | `/getreport/:id` | Get one report |
+| `GET` | `/getreport/:id` | Get a single report |
 | `POST` | `/change/:incidentId` | Verify a report (`new` → `verified`) |
 | `DELETE` | `/deleteincident/:id` | Delete a report and its related shifts |
 
@@ -286,9 +291,9 @@ Base path: `/api`
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/create` | Add a staff member (multipart form, field `photo`) |
+| `POST` | `/create` | Add a staff member (multipart form, `photo` field) |
 | `GET` | `/get` | List all staff |
-| `GET` | `/getstaff/:id` | Get one staff member |
+| `GET` | `/getstaff/:id` | Get a single staff member |
 | `POST` | `/stafflogin` | Staff login with `staffId` and `email` |
 | `DELETE` | `/staffdelete/:id` | Remove a staff member |
 
@@ -320,7 +325,7 @@ curl -X POST http://localhost:5000/api/report/incidentupload \
 
 ## Deployment
 
-All four modules are deployed on **[Vercel](https://vercel.com)** as separate projects from the same repository.
+All four modules are deployed on [Vercel](https://vercel.com) as separate projects from the same repository.
 
 | Project | Root directory | Framework preset | Notes |
 |---|---|---|---|
@@ -332,7 +337,7 @@ All four modules are deployed on **[Vercel](https://vercel.com)** as separate pr
 **Steps**
 
 1. Import the repository in Vercel and create one project per row above, setting the **Root Directory** accordingly.
-2. Add the backend environment variables in **Project Settings → Environment Variables**.
+2. Add the backend environment variables under **Project Settings → Environment Variables**.
 3. Point each frontend to the deployed API URL instead of `http://localhost:5000`.
 4. Redeploy. Every push to `main` triggers a new deployment automatically.
 
@@ -350,7 +355,17 @@ Add screenshots to docs/screenshots/ and uncomment this block.
 | ![Admin](docs/screenshots/admin-dashboard.png) | ![Staff](docs/screenshots/staff.png) |
 -->
 
-Visit the **[live demo](https://ai-developers.vercel.app)** to see the Citizen Portal in action.
+Visit the [live demo](https://ai-developers.vercel.app) to see the Citizen Portal in action.
+
+## Known Limitations
+
+This project is under active development. The following are known gaps, tracked in the [Roadmap](#roadmap):
+
+- JWT verification middleware and role-based access control are not yet enforced on every protected route.
+- Staff authenticate with Staff ID and email only (no password).
+- Report lists have no pagination, search or filters.
+- The API base URL is hard-coded to `http://localhost:5000` in the frontends and must be changed for production.
+- There are no automated tests yet.
 
 ## Roadmap
 
@@ -363,10 +378,11 @@ Visit the **[live demo](https://ai-developers.vercel.app)** to see the Citizen P
 - [ ] Automated tests (Jest, Supertest) and a CI pipeline with GitHub Actions
 - [ ] Multi-language support (English and Urdu)
 - [ ] Progressive Web App support for field staff
+- [ ] Environment-based API URL configuration for all frontends
 
 ## Team
 
-Built with teamwork by three students of the **University of Sindh, Jamshoro**.
+Built by three students of the **University of Sindh, Jamshoro**.
 
 | Member | Role |
 |---|---|
@@ -379,21 +395,19 @@ Built with teamwork by three students of the **University of Sindh, Jamshoro**.
 Contributions, issues and feature requests are welcome.
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m "Add amazing feature"`
-4. Push the branch: `git push origin feature/amazing-feature`
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push the branch: `git push origin feature/your-feature-name`
 5. Open a Pull Request
 
 ## License
 
-Distributed under the **MIT License**. Add a `LICENSE` file at the repository root to make it official.
+Distributed under the **MIT License**. See the `LICENSE` file for details.
 
 ---
 
 <div align="center">
 
-**If EcoTrack inspires you, please give the repository a star.**
-
-Made with care for cleaner, safer communities.
+If you find EcoTrack useful, please consider giving the repository a star.
 
 </div>
